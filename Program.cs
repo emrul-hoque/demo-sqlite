@@ -3,9 +3,10 @@
 // https://learn.microsoft.com/en-us/dotnet/standard/data/sqlite
 public class Program
 {
+    private const string CONNECTION_STRING = "Data Source=hello.db";
+
     public static void Main()
     {
-
         DisplayUsers();
 
         Console.WriteLine("Enter \n1 to add new Name \n2 to delete record \n3 to view records ");
@@ -26,7 +27,7 @@ public class Program
 
     public static void CreateTable()
     {
-        using (var connection = new SqliteConnection("Data Source=hello.db"))
+        using (var connection = new SqliteConnection(CONNECTION_STRING))
         {
             connection.Open();
             var command = connection.CreateCommand();
@@ -44,7 +45,7 @@ public class Program
 
     public static void DeleteTable(string table_name)
     {
-        using (var connection = new SqliteConnection("Data Source=hello.db"))
+        using (var connection = new SqliteConnection(CONNECTION_STRING))
         {
             connection.Open();
             var command = connection.CreateCommand();
@@ -57,7 +58,7 @@ public class Program
 
     public static void UpdateUserRecord(int id, string name)
     {
-        using (var connection = new SqliteConnection("Data Source=hello.db"))
+        using (var connection = new SqliteConnection(CONNECTION_STRING))
         {
             connection.Open();
             var command = connection.CreateCommand();
@@ -70,7 +71,7 @@ public class Program
 
     public static void AddUserRecord(string name)
     {
-        using (var connection = new SqliteConnection("Data Source=hello.db"))
+        using (var connection = new SqliteConnection(CONNECTION_STRING))
         {
             connection.Open();
             var command = connection.CreateCommand();
@@ -83,7 +84,7 @@ public class Program
 
     public static void DeleteUserRecord(int id)
     {
-        using (var connection = new SqliteConnection("Data Source=hello.db"))
+        using (var connection = new SqliteConnection(CONNECTION_STRING))
         {
             connection.Open();
             var command = connection.CreateCommand();
@@ -95,7 +96,7 @@ public class Program
 
     public static void DisplayUsers()
     {
-        using (var connection = new SqliteConnection("Data Source=hello.db"))
+        using (var connection = new SqliteConnection(CONNECTION_STRING))
         {
             connection.Open();
             var command = connection.CreateCommand();
